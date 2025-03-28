@@ -1,27 +1,78 @@
-# TodoSample
+# TODO App - Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.13.
+Este projeto é um aplicativo simples de lista de tarefas (TODO) desenvolvido com Angular 17.
 
-## Development server
+## 📌 Tecnologias Utilizadas
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- [Angular 17](https://angular.io/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [RxJS](https://rxjs.dev/)
+- [Express.js](https://expressjs.com/)
 
-## Code scaffolding
+## 🚀 Como Rodar o Projeto
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Pré-requisitos
 
-## Build
+Antes de iniciar, certifique-se de ter instalado:
+- [Node.js](https://nodejs.org/) (versão recomendada: 18+)
+- [Angular CLI](https://angular.io/cli)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### 📥 Instalando Dependências
 
-## Running unit tests
+Clone o repositório e instale as dependências do projeto:
+```sh
+# Clone o repositório
+git clone https://github.com/seu-usuario/todo-sample.git
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Acesse o diretório do projeto
+cd todo-sample
 
-## Running end-to-end tests
+# Instale as dependências
+npm install
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### ▶️ Executando o Projeto
 
-## Further help
+Para iniciar o servidor de desenvolvimento, execute:
+```sh
+npm start
+```
+Isso iniciará a aplicação no modo de desenvolvimento. Acesse pelo navegador:
+```
+http://localhost:4200/
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 🛠️ Construindo o Projeto
+
+Caso queira gerar os arquivos para produção, utilize:
+```sh
+npm run build
+```
+Os arquivos gerados ficarão na pasta `dist/`.
+
+### 🌐 Servindo a Aplicação com SSR (Server-Side Rendering)
+
+Este projeto também suporta SSR usando Express. Para executar a versão SSR, utilize:
+```sh
+npm run serve:ssr:todo-sample
+```
+A aplicação estará acessível em:
+```
+http://localhost:4000/
+```
+
+## 🧪 Testes
+
+Para rodar os testes unitários:
+```sh
+npm test
+```
+
+## 📜 Licença
+
+Este projeto está sob a licença MIT. Sinta-se livre para usá-lo e modificá-lo.
+
+---
+
+Desenvolvido com ❤️ por Igor Nunes[https://www.linkedin.com/in/igorlnunes].
+
