@@ -1,4 +1,5 @@
 <main class="todo-container">
+  <h1>Para fazer:</h1>
   <div class="add-task">
     <input [(ngModel)]="newTask" placeholder="Insira uma nova tarefa...">
     <button (click)="addTask()">Add</button>
@@ -6,8 +7,14 @@
   <ul class="task-list">
     <li *ngFor="let todoItem of todoList; let i=index" [ngClass]="{'completed':todoItem.completed}">
       <input type="checkbox" [(checked)]="todoItem.completed" (change)="toggleCompleted(i)" />
-      <span [class.completed]="todoItem.completed">{{todoItem.task}}</span>
+
+      <input *ngIf="editingTaskId === todoItem.id" [(ngModel)]="editingTaskValue"
+        (keyup.enter)="saveTask(todoItem.id)" />
+      <span *ngIf="editingTaskId !== todoItem.id" [class.completed]="todoItem.completed">{{todoItem.task}}</span>
+
       <button (click)="deleteTask(todoItem.id)">Delete</button>
+      <button id="edit-btn-edit" *ngIf="editingTaskId !== todoItem.id" (click)="editTask(todoItem)">Edit</button>
+      <button id="edit-btn-save" *ngIf="editingTaskId === todoItem.id" (click)="saveTask(todoItem.id)">Save</button>
     </li>
   </ul>
 

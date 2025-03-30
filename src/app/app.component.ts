@@ -1,4 +1,4 @@
-import { NgClass, NgFor } from '@angular/common';
+import { NgClass, NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterOutlet } from '@angular/router';
@@ -12,7 +12,7 @@ export interface TodoItem {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FormsModule, NgFor, NgClass],
+  imports: [RouterOutlet, FormsModule, NgFor, NgClass, NgIf],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -20,6 +20,8 @@ export class AppComponent {
 
   todoList: TodoItem[] = [];
   newTask: string = '';
+  editingTaskId: number | null = null;
+  editingTaskValue: string = '';
 
   addTask(): void {
     if (this.newTask.trim() !== '') {
@@ -30,7 +32,6 @@ export class AppComponent {
       }
 
       this.todoList.push(newTodoItem);
-      console.log(this.todoList);
       this.newTask = '';
 
     }
@@ -46,5 +47,21 @@ export class AppComponent {
     this.todoList = this.todoList.filter(item => item.id !== id);
     console.log(this.todoList);
 
+  }
+
+  editTask(todoItem: TodoItem): void {
+    this.editingTaskId = todoItem.id;
+    this.editingTaskValue = todoItem.task;
+  }
+
+  saveTask(id: number): void {
+    if (this.editingTaskValue.trim() !== '') {
+      const task = this.todoList.find(item => item.id === id);
+      if (task) {
+        task.task = this.editingTaskValue;
+      }
+    }
+    this.editingTaskId = null;
+    this.editingTaskValue = '';
   }
 }
